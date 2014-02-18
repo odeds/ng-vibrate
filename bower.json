@@ -2,6 +2,7 @@
   "name": "ng-vibrate",
   "version": "0.0.1",
   "dependencies": {
-    "angular": "1.2.6"
+    "jquery": ">=1.10.2",
+    "angular": "~1"
   }
 }

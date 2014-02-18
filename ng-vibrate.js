@@ -3,7 +3,7 @@
  * version: 0.0.1
  * License: MIT
  */
-(function(window, document) {
+(function() {
 
     angular.module("ngVibrate", ['ng']).directive("vbVibrate", function() {
         return {
@@ -36,7 +36,7 @@
                    element.context.style.top = Math.round(Math.random() * y) - ((y + 1) / 2) +'px';
                    element.context.style.opacity = opacity;
                }
-                console.log(element.context.style);
+
                 /* the vibrate stop function */
                 var stopVibrate = function() {
                     clearInterval(interval);
@@ -133,4 +133,4 @@
 
     });
 
-})(window, document);
+})();
