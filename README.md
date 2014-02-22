@@ -6,7 +6,7 @@ Simple directive that helps you vibrate and shake elements
 ### Bower Install
 
 ```
-	bower install ng-vibrate
+bower install ng-vibrate
 ```
 
 ### Usage
@@ -16,7 +16,7 @@ Simple directive that helps you vibrate and shake elements
 **(2)** Set ngVibrate as a dependency in your module
 
 ```javascript
-var myapp  = angular.module('myapp', ['ngVibrate']);
+var myapp = angular.module('myapp', ['ngVibrate']);
 ```
 
 **(3)** Add vb-vibrate directive to the wanted element, example:
