@@ -31,4 +31,4 @@ Works properly in chrome, firefox, safari, and ie 9+
 
 ### Example
 
-You can check out this live example here: http://jsfiddle.net/7UeVX/27/
+You can check out this live example here: http://jsfiddle.net/oded360/Kcsuu/3/
