@@ -1,17 +1,18 @@
 /**
  * ng-vibrate
- * version: 0.0.1
+ * version: 0.0.2
  * License: MIT
  */
-(function() {
+(function(angular) {
 
-    angular.module("ngVibrate", ['ng']).directive("vbVibrate", function() {
+    angular.module("ngVibrate", []).directive("vbVibrate", function() {
         return {
             restrict: "AC",
             link: function(scope, element, attrs) {
 
                 /* the string we get from attribute and converts to object  */
                 var object = scope.$eval(attrs.vbVibrate || "{}");
+                var domElement = element[0];
 
                 /* the vibrate properties */
                 var y = (object.y == null) ? 2 : object.y ;
@@ -26,30 +27,30 @@
                /* the vibrate start function */
                var vibrate = function() {
                    rotation = toggleRotation(rotation);
-                   element.context.style.position = "relative";
-                   element.context.style.webkitTransform = 'rotate('+rotation+'deg)';
-                   element.context.style['MozTransform']    = 'rotate('+rotation+'deg)';
-                   element.context.style.msTransform     = 'rotate('+rotation+'deg)';
-                   element.context.style.oTransform      = 'rotate('+rotation+'deg)';
-                   element.context.style.transform       = 'rotate('+rotation+'deg)';
-                   element.context.style.left = Math.round(Math.random() * x) - ((x + 1) / 2) +'px';
-                   element.context.style.top = Math.round(Math.random() * y) - ((y + 1) / 2) +'px';
-                   element.context.style.opacity = opacity;
-               }
+                   domElement.style.position = "relative";
+                   domElement.style.webkitTransform = 'rotate('+rotation+'deg)';
+                   domElement.style['MozTransform']    = 'rotate('+rotation+'deg)';
+                   domElement.style.msTransform     = 'rotate('+rotation+'deg)';
+                   domElement.style.oTransform      = 'rotate('+rotation+'deg)';
+                   domElement.style.transform       = 'rotate('+rotation+'deg)';
+                   domElement.style.left = Math.round(Math.random() * x) - ((x + 1) / 2) +'px';
+                   domElement.style.top = Math.round(Math.random() * y) - ((y + 1) / 2) +'px';
+                   domElement.style.opacity = opacity;
+               };
 
                 /* the vibrate stop function */
                 var stopVibrate = function() {
                     clearInterval(interval);
-                    element.context.style.position = "static";
-                    element.context.style.left = '0px';
-                    element.context.style.top = '0px';
-                    element.context.style.webkitTransform = 'rotate(0deg)';
-                    element.context.style['MozTransform']    = 'rotate(0deg)';
-                    element.context.style.msTransform     = 'rotate(0deg)';
-                    element.context.style.oTransform      = 'rotate(0deg)';
-                    element.context.style.transform       = 'rotate(0deg)';
-                    element.context.style.opacity = 1;
-                }
+                    domElement.style.position = "static";
+                    domElement.style.left = '0px';
+                    domElement.style.top = '0px';
+                    domElement.style.webkitTransform = 'rotate(0deg)';
+                    domElement.style['MozTransform']    = 'rotate(0deg)';
+                    domElement.style.msTransform     = 'rotate(0deg)';
+                    domElement.style.oTransform      = 'rotate(0deg)';
+                    domElement.style.transform       = 'rotate(0deg)';
+                    domElement.style.opacity = 1;
+                };
 
                /* the toggle rotation function, return positive and negative number for the rotate animation */
                 var toggleRotation = function(rotation) {
@@ -58,7 +59,7 @@
                       } else {
                           return Math.abs(rotation);
                       }
-                 }
+                 };
 
              /*
                the events - switch case
@@ -70,33 +71,33 @@
                      onmouseout() - stops vibrate
                   */
                   case "hover":
-                      element.context.onmouseover = function() {
+                      domElement.onmouseover = function() {
                           interval = setInterval(vibrate, speed);
-                      }
+                      };
 
-                      element.context.onmouseout = function() {
+                      domElement.onmouseout = function() {
                           stopVibrate();
-                      }
+                      };
                   break;
                   /* case: mousedown
                    onmousedown() - starts vibrate
                    onmouseup() - stops vibrate
                    */
                   case "mousedown":
-                      element.context.onmousedown = function() {
+                      domElement.onmousedown = function() {
                           interval = setInterval(vibrate, speed);
-                      }
+                      };
 
-                      element.context.onmouseup = function() {
+                      domElement.onmouseup = function() {
                           stopVibrate();
-                      }
+                      };
                       break;
                   /* case: mousedown
                    onclick() - if clicked == true: stop vibration and clicked = false,
                    if clicked == false: start vibration and clicked == true
                    */
                   case "click":
-                      element.context.onclick = function() {
+                      domElement.onclick = function() {
                           if(clicked) {
                               clicked = false;
                               stopVibrate();
@@ -104,7 +105,7 @@
                               clicked = true;
                               interval = setInterval(vibrate, speed);
                           }
-                      }
+                      };
                  break;
                   /* case: pulse
                    pulse() - recursive setTimeout function to simulate pulse
@@ -118,7 +119,7 @@
                                   pulse();
                                 },1000)
                           }, 1000);
-                      }
+                      };
                       pulse();
                   break;
                   /* case: constant
@@ -133,4 +134,4 @@
 
     });
 
-})();
+})(angular);

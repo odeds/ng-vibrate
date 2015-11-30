@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ng-vibrate example</title>
+    <link rel="stylesheet" type="text/css" href="example.css">
+</head>
+
+    <body ng-app="ngVibrateApp">
+
+        <div class="row">
+            <div vb-vibrate class="vibrateDiv">Default(hover)</div>
+        </div>
+
+        <div class="row">
+            <div vb-vibrate="{trigger:'constant'}" class="vibrateDiv">Constant</div>
+        </div>
+
+        <div class="row">
+            <div vb-vibrate="{trigger:'click'}" class="vibrateDiv">Click</div>
+        </div>
+
+        <div class="row">
+            <div vb-vibrate="{trigger:'click', x:4, y:4, rotation:10, speed:20, opacity:0.6}" class="vibrateDiv">All Opt(click)</div>
+        </div>
+
+        <div class="row">
+            <div vb-vibrate="{x:10, y:10, rotation:4, opacity:0.6}" class="vibrateDiv">x:10, y:10</div>
+        </div>
+
+        <div class="row">
+            <div vb-vibrate="{trigger:'mousedown'}" class="vibrateDiv">Mousedown</div>
+        </div>
+
+        <div class="row">
+            <div vb-vibrate="{trigger:'pulse'}" class="vibrateDiv">Pulse</div>
+        </div>
+
+        <script src="../bower_components/angular/angular.min.js"></script>
+        <script src="../ng-vibrate.js"></script>
+        <script src="example.mdl.js"></script>
+    </body>
+</html>

@@ -1,0 +1,16 @@
+.vibrateDiv {
+    float: left;
+    width: 100px;
+    height: 100px;
+    background: green;
+    line-height: 100px;
+    text-align: center;
+    color: #fff;
+    font-size: 15px;
+}
+
+.row {
+    float: left;
+    width: 100%;
+    margin-top:10px;
+}

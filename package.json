@@ -1,0 +1,29 @@
+{
+  "name": "ng-vibrate",
+  "version": "0.0.2",
+  "description": "Simple directive that helps you vibrate and shake elements",
+  "main": "ng-vibrate.js",
+  "directories": {
+    "example": "example"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/odeds/ng-vibrate.git"
+  },
+  "keywords": [
+    "angular",
+    "shake",
+    "elements"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/odeds/ng-vibrate/issues"
+  },
+  "homepage": "https://github.com/odeds/ng-vibrate",
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-connect": "^2.2.0",
+    "gulp-ng-annotate": "^1.1.0",
+    "gulp-uglify": "^1.5.1"
+  }
+}

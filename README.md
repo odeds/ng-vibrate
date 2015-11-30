@@ -16,7 +16,7 @@ bower install ng-vibrate
 **(2)** Set ngVibrate as a dependency in your module
 
 ```javascript
-var myapp = angular.module('myapp', ['ngVibrate']);
+angular.module('myapp', ['ngVibrate']);
 ```
 
 **(3)** Add vb-vibrate directive to the wanted element, example:
