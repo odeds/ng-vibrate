@@ -1,5 +1,6 @@
 var gulp = require('gulp');
 var connect = require('gulp-connect');
+var rename = require('gulp-rename');
 var uglify = require('gulp-uglify');
 var ngAnnotate = require('gulp-ng-annotate');
 
@@ -7,7 +8,10 @@ gulp.task('build', function() {
      gulp.src('./ng-vibrate.js')
         .pipe(ngAnnotate())
         .pipe(uglify())
-        .pipe(gulp.dest('./ng-vibrate.min.js'));
+        .pipe(rename({
+             suffix: '.min'
+         }))
+        .pipe(gulp.dest('./'));
 });
 
 
